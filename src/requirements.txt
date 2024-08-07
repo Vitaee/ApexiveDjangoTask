@@ -1,0 +1,17 @@
+django==5.1
+djangorestframework==3.15.2
+psycopg==3.2.1
+celery==5.4.0
+django-redis
+Faker
+django-cors-headers
+redis
+django-debug-toolbar
+debugpy
+django_extensions
+pytest-django
+ijson
+pillow
+flower
+setuptools
+pandas
