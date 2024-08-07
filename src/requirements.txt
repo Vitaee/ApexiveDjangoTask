@@ -15,3 +15,5 @@ pillow
 flower
 setuptools
 pandas
+pre-commit
+xlsxwriter
