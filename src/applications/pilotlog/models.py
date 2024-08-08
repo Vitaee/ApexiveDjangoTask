@@ -2,6 +2,17 @@
 from django.db import models
 
 
+class AircraftManager(models.Manager):
+    def high_performance(self):
+        return self.filter(high_performance=True)
+
+    def complex_aircraft(self):
+        return self.filter(complex=True)
+
+    def pressurized_aircraft(self):
+        return self.filter(pressurized=True)
+    
+
 class Aircraft(models.Model):
     guid = models.UUIDField(unique=True)
     user_id = models.IntegerField()
@@ -21,9 +32,14 @@ class Aircraft(models.Model):
     pressurized = models.BooleanField(default=False)
     taa = models.BooleanField(default=False)
 
+    objects = AircraftManager() 
+
     def __str__(self):
         return f"{self.make} {self.model} ({self.reference})"
 
+    class Meta:
+        ordering = ['make', 'model']
+        verbose_name_plural = "aircraft"
 
 class Flight(models.Model):
     guid = models.UUIDField(unique=True)
