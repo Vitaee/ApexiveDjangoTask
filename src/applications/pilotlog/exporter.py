@@ -2,7 +2,7 @@
 import pandas as pd
 
 # Local Folder
-from .models import Flight, Aircraft
+from .models import Aircraft, Flight
 
 
 def export_to_csv(file_path):
