@@ -1,0 +1,144 @@
+{
+	"info": {
+		"_postman_id": "9ce98aa1-248f-4c1a-9c12-870145f95ec5",
+		"name": "ApexiveDjangoTask",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11558282"
+	},
+	"item": [
+		{
+			"name": "User Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"can\",\r\n    \"password\": \"123456\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{local}}api/register/",
+					"host": [
+						"{{local}}api"
+					],
+					"path": [
+						"register",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get User",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token d1ccc39203fec2493b3ef530dfe14beaa3daf5e0",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{local}}api/user/",
+					"host": [
+						"{{local}}api"
+					],
+					"path": [
+						"user",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get AirCrafts",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token d1ccc39203fec2493b3ef530dfe14beaa3daf5e0",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{local}}api/aircrafts/",
+					"host": [
+						"{{local}}api"
+					],
+					"path": [
+						"aircrafts",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Flights",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token d1ccc39203fec2493b3ef530dfe14beaa3daf5e0",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{local}}api/flights/?page=2",
+					"host": [
+						"{{local}}api"
+					],
+					"path": [
+						"flights",
+						""
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "local",
+			"value": "http://127.0.0.1:8000/",
+			"type": "string"
+		}
+	]
+}
