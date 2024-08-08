@@ -9,10 +9,10 @@ ENV PYTHONUNBUFFERED 1
 ENV PYDEVD_DISABLE_FILE_VALIDATION=1
 ENV C_FORCE_ROOT true
 
-# Installing temporary packages required for installing requirements.pip 
+# Installing temporary packages required for installing requirements.pip
 RUN apt-get update && apt-get install && apt-get install --no-install-recommends -y  \
-    gcc \  
-    python3-dev \ 
+    gcc \
+    python3-dev \
     musl-dev \
     postgresql-server-dev-all\
     zlib1g \
@@ -37,7 +37,7 @@ COPY ./src/requirements.txt /scripts/
 RUN pip install --no-cache-dir -r /scripts/requirements.txt
 
 
-# removing temporary packages from docker and removing cache 
+# removing temporary packages from docker and removing cache
 RUN apt-get clean && \
     find -type d -name __pycache__ -prune -exec rm -rf {} \; && \
     rm -rf ~/.cache/pip

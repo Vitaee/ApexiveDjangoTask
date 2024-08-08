@@ -1,9 +1,10 @@
 # Local Folder
+# Local Folder
+from .models import Flight, Aircraft
+from .serializers import FlightSerializer, AircraftSerializer
+
 # Rest Framework
 from rest_framework import viewsets
-
-from .models import Aircraft, Flight
-from .serializers import AircraftSerializer
 
 
 class AircraftViewSet(viewsets.ModelViewSet):
@@ -13,4 +14,4 @@ class AircraftViewSet(viewsets.ModelViewSet):
 
 class FlightViewSet(viewsets.ModelViewSet):
     queryset = Flight.objects.all()
-    serializer_class = AircraftSerializer
+    serializer_class = FlightSerializer

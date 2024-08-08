@@ -2,7 +2,7 @@
 import pandas as pd
 
 # Local Folder
-from .models import Aircraft, Flight
+from .models import Flight, Aircraft
 
 
 def export_to_csv(file_path):
@@ -182,6 +182,18 @@ def export_to_csv(file_path):
         inplace=True,
     )
 
-    with pd.ExcelWriter(file_path, mode="w+", engine="xlsxwriter") as writer:
-        aircraft_df.to_excel(writer, sheet_name="Aircraft Table", index=False)
-        flight_df.to_excel(writer, sheet_name="Flights Table", index=False)
+    # Create a combined CSV
+    with open(file_path, "w", newline="") as csvfile:
+        # Write Aircraft Table
+        csvfile.write(
+            "Aircraft Table,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,\n"
+        )
+        aircraft_df.to_csv(csvfile, index=False, mode="a")
+        csvfile.write(",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,\n")
+        csvfile.write(",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,\n")
+
+        # Write Flights Table
+        csvfile.write(
+            "Flights Table,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,#;type;runway;airport;comments,,,,,,,,,,,,name;role;email,,,,,,,,,,,,,,,,,,,\n"
+        )
+        flight_df.to_csv(csvfile, index=False, mode="a")

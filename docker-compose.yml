@@ -69,11 +69,11 @@ services:
     networks:
       - backend
 
-  
+
 volumes:
   local_postgres_data: {}
   local_postgres_data_backups: {}
-  
+
 
 networks:
   frontend:
